@@ -1,0 +1,38 @@
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+.nav-wrapper .brand-logo img {
+  height: 64px;
+  vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+.nav-wrapper .brand-logo img {
+    height: 56px;
+  }
+}
+
+h1, h2, h3, h4{
+    color: #fababe !important;
+}
+.alert .card-content span {
+			font-weight: bold;
+			font-size: 1.1em;
+			margin-right: 4px;
+		}
+
+.alert .card-content .material-icons {
+			font-size: 1.5em;
+			position: relative;
+			top: 5px;
+			margin-right: 0.5em;
+		}
+
+.select-dropdown.dropdown-content li.hover {
+  background-color: rgba(0,0,0,0.08);
+}
