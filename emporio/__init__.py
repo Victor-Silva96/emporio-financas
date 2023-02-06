@@ -1,5 +1,4 @@
 from flask import Flask
-from flask_apscheduler import APScheduler
 from flask_sqlalchemy import SQLAlchemy
 from emporio.config import Config
 from flask_migrate import Migrate
@@ -7,7 +6,6 @@ import sqlalchemy as sa
 
 db = SQLAlchemy()
 migrate = Migrate()
-scheduler = APScheduler()
 
 
 def create_app():
@@ -16,9 +14,6 @@ def create_app():
     db.app = app
     db.init_app(app)
     migrate.init_app(app, db)
-    scheduler.init_app(app)
-    from .tasks import tasks
-    scheduler.start()
     from emporio.services_collaborators.routes import services_collaborator
     from emporio.faturamento_pdf.routes import faturamento_pdf
     app.register_blueprint(services_collaborator)
