@@ -58,7 +58,9 @@ def download_pdf():
     pdf.ln(10)
 
     pdf.set_font('Times', 'B', 14)
-    pdf.cell(page_width, 0.0, f'Total: {calculate_percentage(total)}', align='C')
+    pdf.cell(page_width, 0.0, f'Total: {total}', align='C')
+    pdf.ln(10)
+    pdf.cell(page_width, 0.0, f'Total a ser pago: {calculate_percentage(total)}', align='C')
     return Response(pdf.output(dest='S').encode('latin-1'), mimetype='application/pdf')
 
 
