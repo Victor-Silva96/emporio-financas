@@ -26,6 +26,10 @@
                             <input id="client" type="text">
                             <label for="client">Digite o(a) cliente</label>
                         </div>
+                        <div class="input-field col s12" id="service-data">
+                            <input type="text" class="datepicker" id="service-data">
+                            <label for="start">Data do serviço</label>
+                        </div>
                         <div class="col s12">
                             <a class="waves-effect waves-light btn-large" id="send"><i
                                     class="material-icons right">send</i>Enviar</a>
@@ -46,7 +50,7 @@
 
 {% endblock content %}
 {% block scripts %}
-      <script src="{{ url_for('static',filename= 'js/search_multiSelect.js') }}"></script>
+    <script src="{{ url_for('static',filename= 'js/search_multiSelect.js') }}"></script>
     <script type="module">
         import {init_service} from "../../static/js/init_service.js";
 

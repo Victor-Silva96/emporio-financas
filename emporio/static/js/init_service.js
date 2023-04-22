@@ -10,6 +10,7 @@ export function init_service() {
         sendServiceForm.collaborator = $("select#collaborator").val();
         sendServiceForm.services = $("select#services").formSelect('getSelectedValues');
         sendServiceForm.client = $("input#client").val();
+        sendServiceForm.serviceData = $("input#service-data").val();
         /*    sendServiceForm.sample = $("#sample").val();*/
         if (validateFields()) {
             $("#send").addClass('disabled')

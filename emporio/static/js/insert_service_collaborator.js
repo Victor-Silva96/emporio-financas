@@ -14,7 +14,6 @@ async function insert_service_collaborator(url = `${window.location.origin}/serv
     const date = await result;
     if (date.status === 201) {
         alarm_ok("Serviço enviado para o colaborador")
-        reset_fields()
     }
 
 }
@@ -27,13 +26,6 @@ function alarm_ok(text) {
 	</div>`).fadeIn("slow").fadeOut(2000, function () {
         $("#send").removeClass('disabled')
     })
-}
-
-function reset_fields() {
-    $("select option").prop('selected', false)
-    $("div#collaborator .select-dropdown.dropdown-trigger").val($("select#collaborator option:first").text())
-    $("div#services .select-dropdown.dropdown-trigger").val('')
-    $("input#client").val('')
 }
 
 export {insert_service_collaborator}

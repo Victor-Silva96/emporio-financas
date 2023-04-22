@@ -22,10 +22,14 @@ def home():
 @services_collaborator.route("/services_collaborator", methods=['POST'])
 def insert_services_collaborator():
     services_collaborators_form = request.get_json()
+    date = datetime.strptime(services_collaborators_form['serviceData'], '%Y-%m-%d') \
+        if services_collaborators_form['serviceData'] \
+        else datetime.now(tz=pytz.timezone('America/Recife'))
+
     for service in services_collaborators_form['services']:
         db.session.add(
             ServiceCollaborator(service_id=service, collaborator_id=services_collaborators_form['collaborator'],
-                                service_collaborator_date=datetime.now(tz=pytz.timezone('America/Recife')),
+                                service_collaborator_date=date,
                                 client_name=services_collaborators_form['client']))
     db.session.commit()
     return flask.Response(status=201)

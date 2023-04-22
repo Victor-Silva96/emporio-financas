@@ -49,7 +49,6 @@ def insert_collaborators():
     op.bulk_insert(Collaborator.__table__,
                    [
                        {'collaborator_name': 'Kalina'},
-                       {'collaborator_name': 'Luciana'},
                        {'collaborator_name': 'Rebeca'},
                        {'collaborator_name': 'Dayane'}
                    ])
@@ -128,6 +127,18 @@ def insert_services():
                        {'service_name': 'REMOÇÃO GEL', 'service_price': 50.00},
                        {'service_name': 'BLINDAGEM', 'service_price': 40.00},
                        {'service_name': 'REMOÇÃO BLINDAGEM', 'service_price': 25.00},
+                       {'service_name': 'PÉ DIVIDIDO', 'service_price': 27.50},
+                       {'service_name': 'MÃO DIVIDIDA', 'service_price': 27.50},
+                       {'service_name': 'ESCOVA P', 'service_price': 50.00},
+                       {'service_name': 'ESCOVA M', 'service_price': 60.00},
+                       {'service_name': 'ESCOVA G', 'service_price': 70.00},
+                       {'service_name': 'ESCOVA GG', 'service_price': 80.00},
+                       {'service_name': 'LAVAGEM ESPECIAL', 'service_price': 30.00},
+                       {'service_name': 'HIDRATAÇÃO WELLA', 'service_price': 120.00},
+                       {'service_name': 'HIDRATAÇÃO OLORCHEE', 'service_price': 150.00},
+                       {'service_name': 'APLICAÇÃO DA COLORAÇÃO DA CLIENTE', 'service_price': 60.00},
+                       {'service_name': 'APLICAÇÃO DA COLORAÇÃO M', 'service_price': 140.00},
+                       {'service_name': 'APLICAÇÃO DA COLORAÇÃO G', 'service_price': 150.00},
                    ])
 
 
