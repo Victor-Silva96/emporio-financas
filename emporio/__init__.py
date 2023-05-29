@@ -16,9 +16,10 @@ def create_app():
     migrate.init_app(app, db)
     from emporio.services_collaborators.routes import services_collaborator
     from emporio.faturamento_pdf.routes import faturamento_pdf
+    from emporio.collaborators.routes import collaborators
     app.register_blueprint(services_collaborator)
     app.register_blueprint(faturamento_pdf)
-
+    app.register_blueprint(collaborators)
     return app
 
 

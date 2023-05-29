@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="col s12">
+            <h4>Serviço Emporio</h4>
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        <table class="responsive-table">
+                            <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Ações</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for collaborator in result %}
+                                <tr>
+                                    <td value="{{ collaborator.collaborator_id }}">{{ collaborator.collaborator_name }}</td>
+                                    <td>
+                                        <a id="update"
+                                           class="btn-floating waves-effect waves-light btn pink accent-1"><i
+                                                class="material-icons">edit</i></a>
+                                        <a class="btn-floating waves-effect waves-light btn pink accent-1"><i
+                                                class="material-icons">delete</i></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Trocar nome</h4>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input placeholder="Placeholder" id="name" type="text" class="validate">
+                    <label for="name">Name</label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a id="update-button" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Atualizar</a>
+        </div>
+    </div>
+{% endblock content %}
+{% block scripts %}
+    <script type="module">
+        import {init_modal_collaborator} from "../../static/js/init_modal_collaborator.js";
+
+        init_modal_collaborator();
+    </script>
+{% endblock %}
