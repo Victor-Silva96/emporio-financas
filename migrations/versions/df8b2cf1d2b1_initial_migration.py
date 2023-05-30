@@ -1,8 +1,8 @@
 """Initial migration.
 
-Revision ID: 45302ae37487
+Revision ID: df8b2cf1d2b1
 Revises: 
-Create Date: 2023-05-29 09:52:06.864925
+Create Date: 2023-05-30 15:19:44.866220
 
 """
 from alembic import op
@@ -11,7 +11,7 @@ import sqlalchemy as sa
 from emporio import Collaborator, Service
 
 # revision identifiers, used by Alembic.
-revision = '45302ae37487'
+revision = 'df8b2cf1d2b1'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -20,7 +20,6 @@ depends_on = None
 def upgrade():
     insert_collaborators()
     insert_services()
-    # ### end Alembic commands ###
 
 
 def insert_collaborators():
