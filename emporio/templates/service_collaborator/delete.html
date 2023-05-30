@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="col s12">
+            <h4>Deletar Serviço Emporio</h4>
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12" id="collaborator">
+                            <select id="collaborator">
+                                {% for collaborator in result.get("collaborators") %}
+                                    <option value="{{ collaborator.collaborator_id }}">{{ collaborator.collaborator_name }}</option>
+                                {% endfor %}
+                            </select>
+                            <label>Colaborador</label>
+                        </div>
+                        <div class="input-field col s12" id="services">
+                            <select searchable="Search in this list" multiple id="services">
+                                {% for service in result.get("services") %}
+                                    <option value="{{ service.service_id }}">{{ service.service_name }}</option>
+                                {% endfor %}
+                            </select>
+                            <label>Serviços</label>
+                        </div>
+                        <div class="input-field col s12" id="client">
+                            <input id="client" type="text">
+                            <label for="client">Digite o(a) cliente</label>
+                        </div>
+                        <div class="input-field col s12" id="service-data">
+                            <input type="text" class="datepicker" id="service-data">
+                            <label for="start">Data do serviço</label>
+                        </div>
+                        <div class="col s12">
+                            <a class="waves-effect waves-light btn-large" id="send"><i
+                                    class="material-icons right">send</i>Enviar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m6" id="result-search">
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+{% endblock content %}
+{% block scripts %}
+    <script src="{{ url_for('static',filename= 'js/search_multiSelect.js') }}"></script>
+    <script type="module">
+        import {init_delete_service} from "../../static/js/init_service.js";
+
+        init_delete_service();
+    </script>
+{% endblock %}

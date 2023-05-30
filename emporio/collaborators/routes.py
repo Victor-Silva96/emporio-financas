@@ -1,6 +1,6 @@
 import flask
 from flask import Blueprint, request, render_template
-from emporio import Collaborator, db
+from emporio import Collaborator, db, ServiceCollaborator
 
 collaborators = Blueprint('collaborators', __name__)
 
@@ -22,3 +22,17 @@ def update_collaborator():
     collaborator.collaborator_name = collaborator_form['collaborator_name']
     db.session.commit()
     return flask.Response(status=200)
+
+
+@collaborators.route("/collaborator", methods=['DELETE'])
+def delete_collaborator():
+    collaborator_form = request.get_json()
+    collaborator = db.session.execute(
+        db.select(Collaborator).where(Collaborator.collaborator_id == collaborator_form['collaborator_id'])
+    ).scalar_one_or_none()
+    db.session.delete(collaborator)
+    ServiceCollaborator.query.filter(ServiceCollaborator.collaborator_id == collaborator_form['collaborator_id']).delete()
+    db.session.commit()
+    return flask.Response(status=200)
+
+

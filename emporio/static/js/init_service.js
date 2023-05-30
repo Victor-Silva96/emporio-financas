@@ -1,4 +1,4 @@
-import {insert_service_collaborator} from "./insert_service_collaborator.js";
+import {insert_service_collaborator, delete_service_collaborator} from "./insert_service_collaborator.js";
 import {set_loader} from "./loader.js";
 
 export let sendServiceForm
@@ -11,12 +11,28 @@ export function init_service() {
         sendServiceForm.services = $("select#services").formSelect('getSelectedValues');
         sendServiceForm.client = $("input#client").val();
         sendServiceForm.serviceData = $("input#service-data").val();
-        /*    sendServiceForm.sample = $("#sample").val();*/
         if (validateFields()) {
             $("#send").addClass('disabled')
             set_loader();
             setTimeout(function () {
                 insert_service_collaborator()
+            }, 1500);
+        }
+    });
+}
+export function init_delete_service() {
+    $("#send").click(function () {
+        clearValidations()
+        sendServiceForm = {};
+        sendServiceForm.collaborator = $("select#collaborator").val();
+        sendServiceForm.services = $("select#services").formSelect('getSelectedValues');
+        sendServiceForm.client = $("input#client").val();
+        sendServiceForm.serviceData = $("input#service-data").val();
+        if (validateFields()) {
+            $("#send").addClass('disabled')
+            set_loader();
+            setTimeout(function () {
+                delete_service_collaborator()
             }, 1500);
         }
     });
