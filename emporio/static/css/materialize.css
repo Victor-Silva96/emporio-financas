@@ -5554,6 +5554,7 @@ button.btn-floating {
   z-index: 9999;
   -webkit-transform-origin: 0 0;
           transform-origin: 0 0;
+  transform: none !important;
 }
 
 .dropdown-content:focus {
